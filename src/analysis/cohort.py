@@ -13,7 +13,7 @@ def main(df_members, freq='Q', export_plot=True):
 
     Args:
         df_members : pd.DataFrame
-            [description]
+            scoop members dataframe
         freq : {'Q', 'M'}, optional
             Set frequency interval of cohorts. Defaults to 'Q' (Quarter End Frequency).
         export_plot : bool, optional
@@ -51,16 +51,12 @@ def make_retention_matrix(df_members, freq):
     df_members : pd.DataFrame
         scoop members dataframe
     freq : str or pd.DateOffset object
-        Set the frequency interval of the matrix.
+        set frequency interval of matrix.
 
     Returns
     -------
     retention_matrix : pd.DataFrame
     cohort_pivot : pd.DataFrame
-
-    Usage
-    -----
-    retention_matrix, cohort_pivot = src.cohort.make_retention_matrix(df_members)
 
     Recources
     ---------
@@ -101,7 +97,7 @@ def make_retention_matrix(df_members, freq):
 
 def plot(retention_matrix, cohort_pivot, df_members, freq):
     '''
-    Create a plot of a retention matrix and save image as a png in ./figures.
+    Create a plot of a retention matrix and save it as an image.
 
     Parameters
     ----------
@@ -139,7 +135,7 @@ def plot(retention_matrix, cohort_pivot, df_members, freq):
                         fontsize=fontsizes['t1'], fontweight='bold', loc='left')
         ax[1].annotate("(t = {0} - {1}, n = {2:.0f})".format(*[t_min.strftime('%b. %Y'),
                                                                t_max.strftime('%b. %Y'), n]),
-                       xy=(0.42, 1.0215), xycoords='axes fraction')
+                       xy=(1, 1.0215), xycoords='axes fraction', ha='right')
         ax[0].set(ylabel='Cohorts')
         ax[0].tick_params(labelsize=fontsizes['labels'], labelrotation=0)
 

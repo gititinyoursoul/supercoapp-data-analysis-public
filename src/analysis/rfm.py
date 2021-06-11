@@ -175,7 +175,7 @@ def plot(rfm_table, df, bin_info, freq):
     sns.set(rc={"axes.facecolor": "#ebebf1"})  # set grid color
     cmap = plt.cm.get_cmap('BuPu')
     dist_color = cmap(0.4)  # distributions color
-    fontsizes = {'t1': 24, 't2': 18, 'labels': 14, 'annot': 14, 'foot': 10}
+    fontsizes = {'t1': 22, 't2': 18, 'labels': 14, 'annot': 14, 'foot': 10}
 
     # Figure and Gridspec
     # choose either constrained_layout or tight_layout
@@ -217,10 +217,10 @@ def plot(rfm_table, df, bin_info, freq):
                 cbar_kws=cbar_kws)
 
     ax1.set_title('Recency-Frequency Heatmap',
-                  fontsize=fontsizes['t2'], fontweight='bold', loc='left')
+                  fontsize=fontsizes['t1'], fontweight='bold', loc='left')
     ax1.annotate(f"(t = {t_min.strftime('%b. %Y')} - {t_max.strftime('%b. %Y')}, n = {n})",
-                 xy=(0.226, 1.0126), xycoords='axes fraction')  # superscript wrapped arround $$
-    ax1.set_xlabel('Recency Score$^2$', fontsize=fontsizes['labels'])
+                 xy=(1, 1.0126), xycoords='axes fraction', ha='right')
+    ax1.set_xlabel('Recency Score$^2$', fontsize=fontsizes['labels'])  # $$ wraps superscript
     ax1.set_ylabel('Frequency Score$^1$', fontsize=fontsizes['labels'])
     ax1.set_xticklabels(ax1.get_xticklabels())
     ax1.set_yticklabels(ax1.get_yticklabels(),
@@ -266,14 +266,13 @@ def plot(rfm_table, df, bin_info, freq):
     ax4.set_xlim(0, bins_monetary[-1]*0.95)
 
     # Footnotes (Ax5)
-    f_annot = '$^2$ Frequency Score Intervals    4: [{0:.1f} - {1:.1f}) > 3: [{1:.1f} - {2:.1f}) \
-               > 2: [{2:.1f} - {3:.1f}) > 1: [{3:.1f} - {4:.1f}]'.format(*np.flip(bin_info['f']))
-    r_annot = '$^1$ Recency Score Intervals    4: [{0:.0f} - {1:.0f}] > 3: ({1:.0f} - {2:.0f}] \
-               > 2: ({2:.0f} - {3:.0f}] > 1: ({3:.0f} - {4:.0f})'.format(*bin_info['r'])
-    ax5.annotate(f_annot, xy=(0.33, 1), fontsize=fontsizes['foot'],
+    freqstr = {'W': 'Weeks', 'M': 'Months'}
+    r_annot = '$^2$ Recency Score Intervals in {5}    4: [{0:.0f} - {1:.0f}] > 3: ({1:.0f} - {2:.0f}] > 2: ({2:.0f} - {3:.0f}] > 1: ({3:.0f} - {4:.0f})'.format(*bin_info['r'], freqstr[freq])
+    f_annot = '$^1$ Frequency Score Intervals   4: [{0:.1f} - {1:.1f}) > 3: [{1:.1f} - {2:.1f}) > 2: [{2:.1f} - {3:.1f}) > 1: [{3:.1f} - {4:.1f}]'.format(*np.flip(bin_info['f']))
+    ax5.annotate(r_annot, xy=(0.36, 1), fontsize=fontsizes['foot'],
                  xycoords='axes fraction', textcoords='offset points',
                  va='center', ha='left', annotation_clip=False)
-    ax5.annotate(r_annot, xy=(0., 1), fontsize=fontsizes['foot'],
+    ax5.annotate(f_annot, xy=(0., 1), fontsize=fontsizes['foot'],
                  xycoords='axes fraction', textcoords='offset points',
                  va='center', ha='left', annotation_clip=False)
 
@@ -292,10 +291,10 @@ def get_heatmap_labels(rfm_table):
 
     Returns
     -------
-    heatmap_count: pd.DataFrame
+    heatmap_count : pd.DataFrame
         DataFrame of the member count in segment
-    heatmap_labels: np.Array
-        numpy array having the same shape as heatmap_count
+    heatmap_labels : np.Array
+        numpy array with identical shape as heatmap_count
     '''
     # create matrix of member counts
     heatmap_count = rfm_table.groupby(
