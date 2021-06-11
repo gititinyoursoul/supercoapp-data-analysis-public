@@ -1,0 +1,159 @@
+[
+  [
+    1,
+    1,
+    {
+      "members": {
+        "1": {
+          "name": "XXX",
+          "deposits": { "0.15": 1 },
+          "collected?": true,
+          "order_requests": {
+            "3": { "filled": "1.0", "ordered": "1.0" },
+            "4": { "filled": "3.0", "ordered": "3.0" },
+            "7": { "filled": "2.0", "ordered": "2.0" },
+            "64": { "filled": "1.0", "ordered": "1.0" }
+          }
+        },
+        "2": {
+          "name": "XXX",
+          "collected?": true,
+          "order_requests": {
+            "7": { "filled": "1.0", "ordered": "1.0" },
+            "4": { "filled": "1.0", "ordered": "1.0" },
+            "3": { "filled": "2.0", "ordered": "2.0" }
+          }
+        }
+      },
+      "products": {
+        "3": {
+          "name": "Artischockenherzen geviertelt in Lake",
+          "unit": "200g",
+          "origin": "Italien",
+          "deposit": null,
+          "category": "Konserven und Gläser",
+          "producer": null,
+          "tax_rate": 7,
+          "net_price": 2.99,
+          "bundle_size": 6,
+          "supplier_code": "1204060",
+          "amount_ordered": 6,
+          "bundles_ordered": 1
+        },
+        "4": {
+          "name": "Tomaten getrocknet in Olivenöl, extra saftig",
+          "unit": "275g",
+          "origin": "EU/nEU",
+          "deposit": null,
+          "category": "Konserven und Gläser",
+          "producer": null,
+          "tax_rate": 7,
+          "net_price": 4.32,
+          "bundle_size": 6,
+          "supplier_code": "1204145",
+          "amount_ordered": 6,
+          "bundles_ordered": 1
+        },
+        "7": {
+          "name": "Peperoni mild in Lake, Projekt",
+          "unit": "270g",
+          "origin": "Türkei",
+          "deposit": null,
+          "category": "Konserven und Gläser",
+          "producer": null,
+          "tax_rate": 7,
+          "net_price": 1.85,
+          "bundle_size": 6,
+          "supplier_code": "1204385",
+          "amount_ordered": 6,
+          "bundles_ordered": 1
+        },
+        "64": {
+          "name": "Gusto Espresso all´italiana ganze Bohne HIH",
+          "unit": "1kg",
+          "origin": "nEU",
+          "deposit": null,
+          "category": "Kaffee und Tee",
+          "producer": null,
+          "tax_rate": 7,
+          "net_price": 11.8,
+          "bundle_size": 4,
+          "supplier_code": "1485710",
+          "amount_ordered": 4,
+          "bundles_ordered": 1
+        }
+      }
+    },
+    "2019-12-13",
+    "2019-12-09 21:16:00.457949",
+    "2020-02-18 20:25:54.887435",
+    false,
+    0.033,
+    null
+  ],
+  [
+    4,
+    3,
+    {
+      "members": {
+        "1": {
+          "name": "XXX",
+          "collected?": true,
+          "order_requests": {
+            "317": { "filled": "1.0", "ordered": "1.0" },
+            "316": { "filled": "12" }
+          }
+        },
+        "3": {
+          "name": "XXX",
+          "collected?": true,
+          "order_requests": {
+            "316": { "filled": "1.0", "ordered": "1.0" },
+            "317": { "filled": "0.2", "ordered": "0.15" }
+          }
+        },
+        "46": {
+          "name": "Supercoop",
+          "collected?": true,
+          "order_requests": { "316": { "filled": "0", "ordered": "26.0" } }
+        }
+      },
+      "products": {
+        "316": {
+          "name": "demeter Dreisaatenbrot",
+          "unit": "750g Stück",
+          "origin": "Görlitzer Brotschmiede, demeter",
+          "deposit": null,
+          "category": "Brot",
+          "producer": null,
+          "tax_rate": 7,
+          "net_price": 3.25,
+          "bundle_size": 1.0,
+          "supplier_code": "1856",
+          "amount_ordered": "5.0",
+          "bundles_ordered": 5
+        },
+        "317": {
+          "name": "demeter Hafer-Mohnlaib",
+          "unit": "600g Stück",
+          "origin": "Görlitzer Brotschmiede, demeter",
+          "deposit": null,
+          "category": "Brot",
+          "producer": null,
+          "tax_rate": 7,
+          "net_price": 2.89,
+          "bundle_size": 1.0,
+          "supplier_code": "1859",
+          "amount_ordered": "2.0",
+          "bundles_ordered": 2
+        }
+      }
+    },
+    "2020-03-06",
+    "2020-03-03 21:49:25.220836",
+    "2020-03-14 16:55:16.884711",
+    false,
+    0.033,
+    null
+  ]
+]
