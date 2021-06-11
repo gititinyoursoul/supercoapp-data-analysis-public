@@ -1,0 +1,10 @@
+__pycache__
+.DS_Store
+scoop_documentation.gdoc
+.config
+.ipython
+.ipynb_checkpoints
+.bash_history
+.cache
+clv-writeup.ipynb
+matrix_plot_colab.png
