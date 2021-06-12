@@ -1,0 +1,21 @@
+# files/dir to ignore while building the image
+.git
+.ipynb_checkpoints
+notebooks
+figures
+Dockerfile
+.DS_Store
+.gitignore
+README.md
+env.*
+*/data/old/
+*/data/test/
+.dockerignore
+clean_up_order_table.rb
+.cache
+.bash_history
+build_image.sh
+**/__pycache__
+*.pyc
+*.pyo
+*.pyd

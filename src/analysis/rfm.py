@@ -231,7 +231,7 @@ def plot(rfm_table, df, bin_info, freq):
     # Distribution bin ranges
     bins_recency = range(0, int(max(rfm_table['recency'])+4), 4)
     bins_frequency = range(0, int(max(rfm_table['frequency'])+4), 4)
-    bins_monetary = range(0, int(max(rfm_table['monetary_value']))+5, 10)
+    bins_monetary = range(0, int(rfm_table['monetary_value'].quantile(0.98))+5, 10)
 
     # Recency (Ax2)
     rfm_table.recency.plot.hist(bins=bins_recency, ax=ax2,
@@ -262,14 +262,12 @@ def plot(rfm_table, df, bin_info, freq):
     ax4.set_xlabel('avg. Spending in EUR', fontsize=fontsizes['labels'])
     ax4.set_ylabel('Number of Members', fontsize=fontsizes['labels'])
     ax4.set_xticks(bins_monetary)
-    # quick fix for not showing outliers: TODO remove outliers in make_dataframe
-    ax4.set_xlim(0, bins_monetary[-1]*0.95)
 
     # Footnotes (Ax5)
     freqstr = {'W': 'Weeks', 'M': 'Months'}
-    r_annot = '$^2$ Recency Score Intervals in {5}    4: [{0:.0f} - {1:.0f}] > 3: ({1:.0f} - {2:.0f}] > 2: ({2:.0f} - {3:.0f}] > 1: ({3:.0f} - {4:.0f})'.format(*bin_info['r'], freqstr[freq])
-    f_annot = '$^1$ Frequency Score Intervals   4: [{0:.1f} - {1:.1f}) > 3: [{1:.1f} - {2:.1f}) > 2: [{2:.1f} - {3:.1f}) > 1: [{3:.1f} - {4:.1f}]'.format(*np.flip(bin_info['f']))
-    ax5.annotate(r_annot, xy=(0.36, 1), fontsize=fontsizes['foot'],
+    r_annot = '$^2${5} since last order    4: [{0:.0f} - {1:.0f}] > 3: ({1:.0f} - {2:.0f}] > 2: ({2:.0f} - {3:.0f}] > 1: ({3:.0f} - {4:.0f})'.format(*bin_info['r'], freqstr[freq])
+    f_annot = '$^1${5} in which a member was active  4: [{0:.1f} - {1:.1f}) > 3: [{1:.1f} - {2:.1f}) > 2: [{2:.1f} - {3:.1f}) > 1: [{3:.1f} - {4:.1f}]'.format(*np.flip(bin_info['f']), freqstr[freq])
+    ax5.annotate(r_annot, xy=(0.42, 1), fontsize=fontsizes['foot'],
                  xycoords='axes fraction', textcoords='offset points',
                  va='center', ha='left', annotation_clip=False)
     ax5.annotate(f_annot, xy=(0., 1), fontsize=fontsizes['foot'],

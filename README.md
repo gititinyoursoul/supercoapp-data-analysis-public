@@ -1,5 +1,5 @@
 # SupercoApp Data Analysis
-Supercoop Friedenau is a FoodCoop based on the New York model. Member-owned and self organized their goal is to provide quality food to their members, with an emphasis on organic and regional products. This repository showcases the data analysis of the SupercoApp and contains only a sample of the original data.
+Supercoop Friedenau is a FoodCoop based on the New York model. Member-owned and self-organized their goal is to provide quality food to their members, with an emphasis on organic and regional products. This repository showcases the data analysis of the SupercoApp and contains only a sample of the original data.
 
 # Functionalities
 
@@ -26,25 +26,28 @@ retention_matrix, cohort_pivot = src.cohort.main(df_members, freq='Q', export_pl
 ```
 Retention plot using the full set of data:
 
-![Retention Matrix](./figures/20210611_Q_retention_matrix_full.png)
+![Retention Matrix](https://github.com/AlexanderTheGreatAgain/supercoapp-data-analysis-public/blob/main/figures/figures/20210611_Q_retention_matrix_full.png)
 
-Findings:
+### Findings
 - High and healthy member retention: About 65% of members stay engaged over a long time period.
 - Members who quit do so early: 3-6 months after a members first engagement the drop-off rate is highest and then flattens out. The rate might be due to the cooperatives 3-month trial membership policy.
 
 ## RFM Analysis
 
-RFM analysis is a data driven customer behavior segmentation technique (RFM stands for recency, frequency, and monetary value). The idea is to segment customers based on when their last purchase was, how often they’ve purchased in the past, and how much they’ve spent overall. All three of these measures have proven to be effective predictors of a customer's willingness to engage in future offers.
+RFM analysis is a data driven customer behavior segmentation technique. The idea is to segment customers based on when their last purchase was (Recency), how often they’ve purchased in the past (Frequency), and how much they’ve spent overall (Monetary Value). All three of these measures have proven to be effective predictors of a customer's willingness to engage in future offers.
 
 ```py
 rfm_table = src.rfm.main(df_members, freq='W', export_csv=True, export_plot=True)
 ```
 RFM plot using the full set of data:
 
-![RFM Segments](https://github.com/AlexanderTheGreatAgain/supercoapp-data-analysis-public/blob/master/figures/20210611_W_rfm_heatmap_full.png)
+![RFM Segments](https://github.com/AlexanderTheGreatAgain/supercoapp-data-analysis-public/blob/main/figures/20210612_W_rfm_heatmap_full.png)
 
-Findings:
-
+### Findings
+Three main segments:
+- Core Members (R[4]F[3:4]): Members who have been part of the coop for a while (hence the high frequency score) and make the coop function through their recurring engagement. 
+- New Members (R[4]F[1:2]): Members who joined recently and might become core members in the future or stop beeing active members.
+- Lost Members (R[1:3]F[1:3]): Members who most likely stoped beeing an active members.
 
 # JSON File Structure
 
