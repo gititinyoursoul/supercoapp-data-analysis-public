@@ -1,5 +1,5 @@
 # SupercoApp Data Analysis
-Supercoop Friedenau is a FoodCoop based on the New York model. Member-owned and self-organized their goal is to provide quality food to their members, with an emphasis on organic and regional products. This repository showcases the data analysis of the SupercoApp and contains only a sample of the original data.
+Supercoop Friedenau is a FoodCoop based on the New York model. Member-owned and self-organized, their goal is to provide food to their members, with an emphasis on organic and regional products. This repository showcases the data analysis of the SupercoApp and contains only a sample of the original data.
 
 # Functionalities
 
@@ -19,22 +19,22 @@ df_orders, df_members, df_products = src.load_data('data/processed')
 ```
 
 ## Cohort Analysis
-This module uses time-based cohorts to gain insigth to the members retention. Time based cohorts help to separate growth metrics from engagement metrics as growth can easily mask engagement problems. In reality, the activity of old users is often being hidden by the growth numbers of new users.
+This module uses time-based cohorts to gain insight to the members retention. Time based cohorts help to separate growth metrics from engagement metrics as growth can easily mask engagement problems. In reality, the activity of old users is often being hidden by the growth numbers of new users.
 
 ```py
 retention_matrix, cohort_pivot = src.cohort.main(df_members, freq='Q', export_plot=True)
 ```
 Retention plot using the full set of data:
 
-![Retention Matrix](https://github.com/AlexanderTheGreatAgain/supercoapp-data-analysis-public/blob/main/figures/figures/20210611_Q_retention_matrix_full.png)
+![Retention Matrix](https://github.com/AlexanderTheGreatAgain/supercoapp-data-analysis-public/blob/main/figures/20210611_Q_retention_matrix_full.png)
 
 ### Findings
 - High and healthy member retention: About 65% of members stay engaged over a long time period.
-- Members who quit do so early: 3-6 months after a members first engagement the drop-off rate is highest and then flattens out. The rate might be due to the cooperatives 3-month trial membership policy.
+- Members who quit do so early: 3-6 months after a members first engagement the drop-off rate is highest and then flattens out. The rate might be due to the cooperative's 3-month trial membership policy.
 
 ## RFM Analysis
 
-RFM analysis is a data driven customer behavior segmentation technique. The idea is to segment customers based on when their last purchase was (Recency), how often they’ve purchased in the past (Frequency), and how much they’ve spent overall (Monetary Value). All three of these measures have proven to be effective predictors of a customer's willingness to engage in future offers.
+RFM analysis is a data driven customer behavior segmentation technique. The idea is to segment customers based on when their last purchase was (Recency), how often they’ve purchased in the past (Frequency), and how much they spent (Monetary Value). All three of these measures have proven to be effective predictors of a customer's willingness to engage in future offers.
 
 ```py
 rfm_table = src.rfm.main(df_members, freq='W', export_csv=True, export_plot=True)
@@ -46,8 +46,8 @@ RFM plot using the full set of data:
 ### Findings
 Three main segments:
 - Core Members (R[4]F[3:4]): Members who have been part of the coop for a while (hence the high frequency score) and make the coop function through their recurring engagement. 
-- New Members (R[4]F[1:2]): Members who joined recently and might become core members in the future or stop beeing active members.
-- Lost Members (R[1:3]F[1:3]): Members who most likely stoped beeing an active members.
+- New Members (R[4]F[1:2]): Members who joined recently and might become core members in the future or stop being active members.
+- Lost Members (R[1:3]F[1:3]): Members who most likely stopped being an active members.
 
 # JSON File Structure
 
@@ -59,7 +59,7 @@ An array of orders with the following attributes:
   [
     1, // ID
     1, // supplier ID
-    {...}, // positions hash
+    {...}, // position hash
     "2019-12-13", // delivery date
     "2019-12-09 21:16:00.457949", // created at
     "2020-02-18 20:25:54.887435", // updated at
@@ -71,7 +71,7 @@ An array of orders with the following attributes:
 ]
 ```
 
-The positions hash has the following keys, `members` and `products`.
+The position hash has the following keys, `members` and `products`.
 
 The member hash has the following properties:
 ```js
